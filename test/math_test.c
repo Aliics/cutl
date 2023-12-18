@@ -1,6 +1,7 @@
 #include "../cutl.h"
 
 #include <stdlib.h>
+#include <unistd.h>
 
 int plus(int a, int b) { return a + b; }
 char *string_concat(char *s0, char *s1) {
@@ -32,6 +33,8 @@ DESCRIBE_TEST("string concat test")
 
 	WHEN(string_concat(str0, str1))
 
+	sleep(1);
+
 	THEN("Hello, World!")
 END_TEST
 
@@ -40,6 +43,8 @@ DESCRIBE_TEST("some floats")
 	GIVEN(f1, 0.5)
 
 	WHEN(f0 / f1)
+
+	sleep(2);
 
 	THEN(5.0)
 END_TEST
