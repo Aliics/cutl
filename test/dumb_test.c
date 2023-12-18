@@ -1,0 +1,11 @@
+#include "../cutl.h"
+
+CUTL_SUITE_START
+
+DESCRIBE_TEST("1")
+	WHEN(1)
+
+	THEN(1)
+END_TEST
+
+CUTL_SUITE_END

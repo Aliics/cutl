@@ -4,15 +4,16 @@ CC = cc
 OUT = out
 SRCS := $(wildcard *.c)
 BINS := $(SRCS:%.c=%)
+TESTS := $(SRCS:%.c=%.o)
 
-all: clean ${BINS}
+all: clean ${BINS} ${TESTS}
 
 clean:
 	rm -rf $(OUT)
 
 %:
-	@echo "Compiling %.c"
-	mkdir $(OUT)
-	cc -o $(OUT)/$@ $@.c -I ..
-	./$(OUT)/$@
+	mkdir -p $(OUT)
+	cc -o $(OUT)/$@.o $@.c -I ..
 
+%.o:
+	./$(OUT)/$@

@@ -44,7 +44,7 @@ DESCRIBE_TEST("some floats")
 
 	WHEN(f0 / f1)
 
-	sleep(2);
+	sleep(1);
 
 	THEN(5.0)
 END_TEST
