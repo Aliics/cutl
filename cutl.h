@@ -38,14 +38,14 @@ char *__mk_show_fail_double__(double a, double b) __mk_show_fail__("%f", a, b);
 		double: __mk_show_fail_double__ \
 	)(a, b)
 
-#define CUTL_SUITE_START \
+#define cutl_suite_start \
 	int main(void) { \
 		int __varname__(tests) = 0; \
 		int __varname__(tests_passed) = 0; \
 		unsigned long __test_suite_start_time__ = time(NULL); \
 		printf("Running %s test suite:\n", __FILE__);
 
-#define CUTL_SUITE_END \
+#define cutl_suite_end \
 		unsigned long __test_suite_elapsed_time__ = time(NULL) - __test_suite_start_time__; \
 		printf( \
 			"passed: %d, failed: %d (%lus)\n", \
@@ -55,12 +55,12 @@ char *__mk_show_fail_double__(double a, double b) __mk_show_fail__("%f", a, b);
 		); \
 	}
 
-#define DESCRIBE_TEST(test_name) { \
+#define describe_test(test_name) { \
 	char *__test_name__ = test_name; \
 	unsigned long __test_start_time__ = time(NULL);
-#define GIVEN(var, val) __typeof__(val) var = val;
-#define WHEN(when_val) __typeof__(when_val) actual = when_val;
-#define THEN(then_val) \
+#define given(var, val) __typeof__(val) var = val;
+#define when(when_val) __typeof__(when_val) actual = when_val;
+#define then(then_val) \
 	unsigned long __test_elapsed_time__ = time(NULL) - __test_start_time__; \
 	if (!(__compare__(actual, then_val))) { \
 		printf( \
@@ -73,6 +73,6 @@ char *__mk_show_fail_double__(double a, double b) __mk_show_fail__("%f", a, b);
 		__varname__(tests_passed)++; \
 		printf("\t\"%s\" passed (%lus)\n", __test_name__, __test_elapsed_time__); \
 	}
-#define END_TEST __varname__(tests)++; }
+#define end_test __varname__(tests)++; }
 
 #endif

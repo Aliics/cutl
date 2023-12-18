@@ -16,37 +16,37 @@ char *string_concat(char *s0, char *s1) {
 }
 
 
-CUTL_SUITE_START
+cutl_suite_start
 
-DESCRIBE_TEST("simple addition")
-	GIVEN(x, 1)
-	GIVEN(y, 2)
+describe_test("simple addition")
+	given(x, 1)
+	given(y, 2)
 
-	WHEN(plus(x, y))
+	when(plus(x, y))
 
-	THEN(3)	
-END_TEST
+	then(3)	
+end_test
 
-DESCRIBE_TEST("string concat test")
-	GIVEN(str0, "Hello, ")
-	GIVEN(str1, "World!")
+describe_test("string concat test")
+	given(str0, "Hello, ")
+	given(str1, "World!")
 
-	WHEN(string_concat(str0, str1))
-
-	sleep(1);
-
-	THEN("Hello, World!")
-END_TEST
-
-DESCRIBE_TEST("some floats")
-	GIVEN(f0, 2.5)
-	GIVEN(f1, 0.5)
-
-	WHEN(f0 / f1)
+	when(string_concat(str0, str1))
 
 	sleep(1);
 
-	THEN(5.0)
-END_TEST
+	then("Hello, World!")
+end_test
 
-CUTL_SUITE_END
+describe_test("some floats")
+	given(f0, 2.5)
+	given(f1, 0.5)
+
+	when(f0 / f1)
+
+	sleep(1);
+
+	then(5.0)
+end_test
+
+cutl_suite_end
