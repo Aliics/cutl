@@ -65,7 +65,9 @@ char *__mk_show_fail_double__(double a, double b) __mk_show_fail__("%f", a, b);
 	if (!(__compare__(actual, then_val))) { \
 		printf( \
 			"\t\"%s\" failed (%s) (%lus)\n", \
-			__test_name__, __show_fail__(actual, then_val), __test_elapsed_time__ \
+			__test_name__, \
+			__show_fail__(actual, then_val), \
+			__test_elapsed_time__ \
 		); \
 	} else { \
 		__varname__(tests_passed)++; \
